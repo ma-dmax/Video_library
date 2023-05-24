@@ -28,179 +28,205 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
-            panel1 = new Panel();
-            button2 = new Button();
-            panel3 = new Panel();
-            button1 = new Button();
-            panel2 = new Panel();
-            panel4 = new Panel();
-            textBox1 = new TextBox();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            movie_combo_box = new ComboBox();
+            serial_combo_box = new ComboBox();
+            cartoons_combo_box = new ComboBox();
+            right_bg = new Panel();
+            advenced_search = new CheckBox();
+            clear_btn = new Button();
+            this.search_btn = new Button();
+            vertical_border = new Panel();
+            main_bg = new Panel();
+            horizon_border = new Panel();
+            search_box = new TextBox();
+            right_bg.SuspendLayout();
+            main_bg.SuspendLayout();
             SuspendLayout();
             // 
-            // comboBox1
+            // movie_combo_box
             // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox1.CausesValidation = false;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(52, 49);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(120, 23);
-            comboBox1.TabIndex = 0;
-            comboBox1.Text = "Фільми";
-            comboBox1.SelectedIndexChanged += comboBox_SelectedIndexChanged;
-            comboBox1.MouseLeave += comboBox_MouseLeave;
-            comboBox1.MouseHover += comboBox_MouseHover;
+            movie_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            movie_combo_box.CausesValidation = false;
+            movie_combo_box.FormattingEnabled = true;
+            movie_combo_box.Location = new Point(50, 45);
+            movie_combo_box.Name = "movie_combo_box";
+            movie_combo_box.Size = new Size(120, 23);
+            movie_combo_box.TabIndex = 0;
+            movie_combo_box.Text = "Фільми";
+            movie_combo_box.Visible = false;
+            movie_combo_box.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            movie_combo_box.MouseLeave += ComboBox_MouseLeave;
+            movie_combo_box.MouseHover += ComboBox_MouseHover;
             // 
-            // comboBox2
+            // serial_combo_box
             // 
-            comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox2.FlatStyle = FlatStyle.Popup;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Мульфільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
-            comboBox2.Location = new Point(178, 49);
-            comboBox2.Name = "comboBox2";
-            comboBox2.RightToLeft = RightToLeft.No;
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 1;
-            comboBox2.Text = "Cеріали";
-            comboBox2.SelectedIndexChanged += comboBox_SelectedIndexChanged;
-            comboBox2.MouseLeave += comboBox_MouseLeave;
-            comboBox2.MouseHover += comboBox_MouseHover;
+            serial_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            serial_combo_box.FlatStyle = FlatStyle.Popup;
+            serial_combo_box.FormattingEnabled = true;
+            serial_combo_box.Items.AddRange(new object[] { "Мульфільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
+            serial_combo_box.Location = new Point(175, 45);
+            serial_combo_box.Name = "serial_combo_box";
+            serial_combo_box.RightToLeft = RightToLeft.No;
+            serial_combo_box.Size = new Size(120, 23);
+            serial_combo_box.TabIndex = 1;
+            serial_combo_box.Text = "Cеріали";
+            serial_combo_box.Visible = false;
+            serial_combo_box.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            serial_combo_box.MouseLeave += ComboBox_MouseLeave;
+            serial_combo_box.MouseHover += ComboBox_MouseHover;
             // 
-            // comboBox3
+            // cartoons_combo_box
             // 
-            comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox3.FlatStyle = FlatStyle.Popup;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Мульфільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
-            comboBox3.Location = new Point(305, 49);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
-            comboBox3.TabIndex = 2;
-            comboBox3.Text = "Мульфільми";
-            comboBox3.SelectedIndexChanged += comboBox_SelectedIndexChanged;
-            comboBox3.MouseLeave += comboBox_MouseLeave;
-            comboBox3.MouseHover += comboBox_MouseHover;
+            cartoons_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cartoons_combo_box.FlatStyle = FlatStyle.Popup;
+            cartoons_combo_box.FormattingEnabled = true;
+            cartoons_combo_box.Items.AddRange(new object[] { "Мульфільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
+            cartoons_combo_box.Location = new Point(300, 45);
+            cartoons_combo_box.Name = "cartoons_combo_box";
+            cartoons_combo_box.Size = new Size(120, 23);
+            cartoons_combo_box.TabIndex = 2;
+            cartoons_combo_box.Text = "Мульфільми";
+            cartoons_combo_box.Visible = false;
+            cartoons_combo_box.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            cartoons_combo_box.MouseLeave += ComboBox_MouseLeave;
+            cartoons_combo_box.MouseHover += ComboBox_MouseHover;
             // 
-            // panel1
+            // right_bg
             // 
-            panel1.BackColor = Color.FromArgb(49, 106, 247);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(440, 0);
-            panel1.Margin = new Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(144, 431);
-            panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
+            right_bg.BackColor = Color.FromArgb(49, 106, 247);
+            right_bg.Controls.Add(advenced_search);
+            right_bg.Controls.Add(clear_btn);
+            right_bg.Controls.Add(this.search_btn);
+            right_bg.Dock = DockStyle.Right;
+            right_bg.Location = new Point(440, 0);
+            right_bg.Margin = new Padding(0);
+            right_bg.Name = "right_bg";
+            right_bg.Size = new Size(144, 431);
+            right_bg.TabIndex = 3;
+            right_bg.Click += Disfocus;
             // 
-            // button2
+            // advenced_search
             // 
-            button2.BackColor = Color.FromArgb(250, 128, 90);
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Location = new Point(57, 65);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "Очистити";
-            button2.UseVisualStyleBackColor = false;
+            advenced_search.AutoSize = true;
+            advenced_search.CheckAlign = ContentAlignment.TopLeft;
+            advenced_search.Cursor = Cursors.Hand;
+            advenced_search.Location = new Point(7, 89);
+            advenced_search.Name = "advenced_search";
+            advenced_search.Size = new Size(137, 19);
+            advenced_search.TabIndex = 6;
+            advenced_search.Text = "Розширений пошук";
+            advenced_search.UseVisualStyleBackColor = true;
+            advenced_search.CheckedChanged += Advenced_search_CheckedChanged;
             // 
-            // panel3
+            // clear_btn
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel3.BackColor = Color.Black;
-            panel3.Location = new Point(441, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(2, 432);
-            panel3.TabIndex = 6;
-            panel3.Paint += panel3_Paint;
+            clear_btn.BackColor = Color.FromArgb(250, 128, 90);
+            clear_btn.BackgroundImageLayout = ImageLayout.Center;
+            clear_btn.FlatStyle = FlatStyle.Popup;
+            clear_btn.Location = new Point(57, 60);
+            clear_btn.Name = "clear_btn";
+            clear_btn.Size = new Size(75, 23);
+            clear_btn.TabIndex = 5;
+            clear_btn.Text = "Очистити";
+            clear_btn.UseVisualStyleBackColor = false;
+            clear_btn.Click += Clear_Click;
             // 
-            // button1
+            // search_btn
             // 
-            button1.BackColor = Color.FromArgb(247, 190, 49);
-            button1.Cursor = Cursors.Hand;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(12, 20);
-            button1.MaximumSize = new Size(120, 0);
-            button1.MinimumSize = new Size(80, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 39);
-            button1.TabIndex = 4;
-            button1.Text = "Пошук";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            search_btn.BackColor = Color.FromArgb(247, 190, 49);
+            search_btn.Cursor = Cursors.Hand;
+            search_btn.FlatStyle = FlatStyle.Popup;
+            search_btn.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            search_btn.Location = new Point(12, 15);
+            search_btn.MaximumSize = new Size(120, 0);
+            search_btn.MinimumSize = new Size(80, 0);
+            search_btn.Name = "search_btn";
+            search_btn.Size = new Size(120, 39);
+            search_btn.TabIndex = 4;
+            search_btn.Text = "Пошук";
+            search_btn.UseVisualStyleBackColor = false;
+            search_btn.Click += Search_btn_Click;
             // 
-            // panel2
+            // vertical_border
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.FromArgb(250, 128, 90);
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(comboBox3);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(comboBox1);
-            panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(0);
-            panel2.MinimumSize = new Size(0, 480);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(440, 480);
-            panel2.TabIndex = 6;
+            vertical_border.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            vertical_border.BackColor = Color.Black;
+            vertical_border.Location = new Point(441, 0);
+            vertical_border.Name = "vertical_border";
+            vertical_border.Size = new Size(2, 432);
+            vertical_border.TabIndex = 6;
             // 
-            // panel4
+            // main_bg
             // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.Black;
-            panel4.Location = new Point(-26, 78);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(469, 2);
-            panel4.TabIndex = 7;
+            main_bg.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            main_bg.BackColor = Color.FromArgb(250, 128, 90);
+            main_bg.Controls.Add(horizon_border);
+            main_bg.Controls.Add(search_box);
+            main_bg.Controls.Add(cartoons_combo_box);
+            main_bg.Controls.Add(serial_combo_box);
+            main_bg.Controls.Add(movie_combo_box);
+            main_bg.Location = new Point(0, 0);
+            main_bg.Margin = new Padding(0);
+            main_bg.MinimumSize = new Size(0, 480);
+            main_bg.Name = "main_bg";
+            main_bg.Size = new Size(440, 480);
+            main_bg.TabIndex = 6;
+            main_bg.Click += Disfocus;
             // 
-            // textBox1
+            // horizon_border
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox1.Location = new Point(243, 20);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(181, 23);
-            textBox1.TabIndex = 3;
-            textBox1.TextChanged += textBox1_TextChanged;
+            horizon_border.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            horizon_border.BackColor = Color.Black;
+            horizon_border.Location = new Point(-26, 100);
+            horizon_border.Name = "horizon_border";
+            horizon_border.Size = new Size(469, 2);
+            horizon_border.TabIndex = 7;
+            horizon_border.Click += Disfocus;
+            // 
+            // search_box
+            // 
+            search_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            search_box.Location = new Point(243, 15);
+            search_box.MaximumSize = new Size(250, 0);
+            search_box.Name = "search_box";
+            search_box.Size = new Size(181, 23);
+            search_box.TabIndex = 3;
+            search_box.Text = "Пошук в програмі...";
+            search_box.TextChanged += Search_box_TextChanged;
+            search_box.Enter += Search_box_Enter;
+            search_box.Leave += Search_box_Leave;
             // 
             // Main_Window
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(584, 431);
-            Controls.Add(panel2);
-            Controls.Add(panel3);
-            Controls.Add(panel1);
+            Controls.Add(main_bg);
+            Controls.Add(vertical_border);
+            Controls.Add(right_bg);
             MinimumSize = new Size(600, 0);
             Name = "Main_Window";
             Text = "Main_Window";
-            Load += Main_Window_Load;
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            Click += Disfocus;
+            right_bg.ResumeLayout(false);
+            right_bg.PerformLayout();
+            main_bg.ResumeLayout(false);
+            main_bg.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
-        private Panel panel1;
-        private Button button1;
-        private Panel panel2;
-        private TextBox textBox1;
-        private Button button2;
-        private Panel panel3;
-        private Panel panel4;
+        private ComboBox movie_combo_box;
+        private ComboBox serial_combo_box;
+        private ComboBox cartoons_combo_box;
+        private Panel right_bg;
+        private Button search_btn;
+        private Panel main_bg;
+        private TextBox search_box;
+        private Button clear_btn;
+        private Panel vertical_border;
+        private Panel horizon_border;
+        private CheckBox advenced_search;
     }
 }

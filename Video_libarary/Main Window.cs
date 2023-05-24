@@ -17,82 +17,75 @@ namespace Video_libarary
         {
             InitializeComponent();
         }
-
-        private void fontDialog1_Apply(object sender, EventArgs e)
+        private void Search_btn_Click(object sender, EventArgs e)
         {
-
+            string name_of = search_box.Text;
+            if (name_of != "Пошук в програмі...")
+            {
+                MessageBox.Show($"You write: {name_of}");
+                Console.WriteLine($"You write: {name_of}");
+            }
+        }
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox type_video = (System.Windows.Forms.ComboBox)sender;
+            search_box.Text = type_video.Text;
+            Search_btn_Click(this, e);
         }
 
-        private void Main_Window_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void comboBox3_MouseHover(object sender, EventArgs e)
+        private void ComboBox_MouseHover(object sender, EventArgs e)
         {
             System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
             comboBox.DroppedDown = true;
         }
 
-        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox_MouseHover(object sender, EventArgs e)
-        {
-            System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
-            comboBox.DroppedDown = true;
-        }
-
-        private void comboBox_MouseLeave(object sender, EventArgs e)
+        private void ComboBox_MouseLeave(object sender, EventArgs e)
         {
             System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
             comboBox.DroppedDown = false;
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void Search_box_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        private void Advenced_search_CheckedChanged(object sender, EventArgs e)
+        {
+            movie_combo_box.Visible = !movie_combo_box.Visible;
+            serial_combo_box.Visible = !serial_combo_box.Visible;
+            cartoons_combo_box.Visible = !cartoons_combo_box.Visible;
+        }
+
+        private void Search_box_Enter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox textBox = (System.Windows.Forms.TextBox)sender;
+            if (textBox.Text == "Пошук в програмі...")
+            {
+                textBox.Text = "";
+                textBox.ForeColor = SystemColors.WindowText;
+            }
+        }
+
+        private void Search_box_Leave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox textBox = (System.Windows.Forms.TextBox)sender;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Пошук в програмі...";
+                textBox.ForeColor = SystemColors.GrayText;
+            }
+        }
+
+        private void Disfocus(object sender, EventArgs e)
+        {
+            main_bg.Focus();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void отменитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
