@@ -55,6 +55,15 @@ namespace Video_libarary
             movie_combo_box.Visible = !movie_combo_box.Visible;
             serial_combo_box.Visible = !serial_combo_box.Visible;
             cartoons_combo_box.Visible = !cartoons_combo_box.Visible;
+            if (cartoons_combo_box.Visible == false)
+            {
+                horizon_border.Location = new System.Drawing.Point(-26, 50);
+            }
+            else
+            {
+                horizon_border.Location = new System.Drawing.Point(-26, 100);
+            }
+
         }
 
         private void Search_box_Enter(object sender, EventArgs e)

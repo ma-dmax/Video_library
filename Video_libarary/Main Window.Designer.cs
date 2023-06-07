@@ -34,7 +34,7 @@
             right_bg = new Panel();
             advenced_search = new CheckBox();
             clear_btn = new Button();
-            this.search_btn = new Button();
+            search_btn = new Button();
             vertical_border = new Panel();
             main_bg = new Panel();
             horizon_border = new Panel();
@@ -96,7 +96,7 @@
             right_bg.BackColor = Color.FromArgb(49, 106, 247);
             right_bg.Controls.Add(advenced_search);
             right_bg.Controls.Add(clear_btn);
-            right_bg.Controls.Add(this.search_btn);
+            right_bg.Controls.Add(search_btn);
             right_bg.Dock = DockStyle.Right;
             right_bg.Location = new Point(440, 0);
             right_bg.Margin = new Padding(0);
@@ -177,7 +177,7 @@
             // 
             horizon_border.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             horizon_border.BackColor = Color.Black;
-            horizon_border.Location = new Point(-26, 100);
+            horizon_border.Location = new Point(-26, 50);
             horizon_border.Name = "horizon_border";
             horizon_border.Size = new Size(469, 2);
             horizon_border.TabIndex = 7;
