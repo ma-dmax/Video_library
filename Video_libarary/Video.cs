@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.LinkLabel;
-using System.Diagnostics;
-using System.ComponentModel;
 using System.IO;
 
 namespace Video_libarary
@@ -15,17 +11,50 @@ namespace Video_libarary
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public int ID { get; set; }
+        public int Year { get; set; }
+        public string Genre { get; set; }
+        public double Rating { get; set; }
+        public string Country { get; set; }
         public string[] Types { get; set; }
+        public int ID { get; set; }
+    }
 
-        public Video() {
+    internal class Videos
+    {
+        public Video[] GetVideos()
+        {
             string[,] arr = Init();
-            
-            Name = arr[0,0];
-            Description = arr[0,1];
-            ID = int.Parse(arr[0, 2]);
+
+            Video[] videos = new Video[arr.GetLength(0)];
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                Video video = new Video
+                {
+                    Name = arr[i, 0],
+                    Description = arr[i, 1],
+                    Year = int.Parse(arr[i, 2]),
+                    Genre = arr[i, 3],
+                    Rating = double.Parse(arr[i, 4]),
+                    Country = arr[i, 5],
+                    ID = i + 1
+                };
+
+                string[] types = new string[arr.GetLength(1) - 6];
+                for (int j = 6; j < arr.GetLength(1); j++)
+                {
+                    types[j - 6] = arr[i, j];
+                }
+
+                video.Types = types;
+
+                videos[i] = video;
+            }
+
+            return videos;
         }
-        public string[,] Init()
+
+        private string[,] Init()
         {
             string filePath = "A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\movies.txt";
 
@@ -55,9 +84,6 @@ namespace Video_libarary
             }
 
             return array;
-
-
         }
-
     }
 }

@@ -48,7 +48,8 @@ namespace Video_libarary
 
         private void Search_box_TextChanged(object sender, EventArgs e)
         {
-            Video alias = new Video();
+            Videos videos = new Videos();
+            Video[] videoArray = videos.GetVideos();
         }
 
         private void Advenced_search_CheckedChanged(object sender, EventArgs e)
