@@ -37,6 +37,8 @@
             search_btn = new Button();
             vertical_border = new Panel();
             main_bg = new Panel();
+            Video_Panel = new Panel();
+            ScrollBarr = new VScrollBar();
             horizon_border = new Panel();
             search_box = new TextBox();
             right_bg.SuspendLayout();
@@ -160,6 +162,8 @@
             // 
             main_bg.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             main_bg.BackColor = Color.FromArgb(250, 128, 90);
+            main_bg.Controls.Add(Video_Panel);
+            main_bg.Controls.Add(ScrollBarr);
             main_bg.Controls.Add(horizon_border);
             main_bg.Controls.Add(search_box);
             main_bg.Controls.Add(cartoons_combo_box);
@@ -172,6 +176,26 @@
             main_bg.Size = new Size(440, 480);
             main_bg.TabIndex = 6;
             main_bg.Click += Disfocus;
+            // 
+            // Video_Panel
+            // 
+            Video_Panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Video_Panel.BackColor = Color.FromArgb(250, 128, 90);
+            Video_Panel.Location = new Point(0, 52);
+            Video_Panel.Margin = new Padding(0);
+            Video_Panel.Name = "Video_Panel";
+            Video_Panel.Size = new Size(425, 379);
+            Video_Panel.TabIndex = 9;
+            // 
+            // ScrollBarr
+            // 
+            ScrollBarr.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            ScrollBarr.Location = new Point(425, 51);
+            ScrollBarr.Maximum = 50000;
+            ScrollBarr.Name = "ScrollBarr";
+            ScrollBarr.Size = new Size(15, 380);
+            ScrollBarr.TabIndex = 8;
+            ScrollBarr.Scroll += VScrollBar_Scroll;
             // 
             // horizon_border
             // 
@@ -228,5 +252,7 @@
         private Panel vertical_border;
         private Panel horizon_border;
         private CheckBox advenced_search;
+        private VScrollBar ScrollBarr;
+        private Panel Video_Panel;
     }
 }
