@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Video_libarary;
 
 namespace Video_libarary
 {
@@ -16,6 +17,7 @@ namespace Video_libarary
         public Main_Window()
         {
             InitializeComponent();
+
         }
         private void Search_btn_Click(object sender, EventArgs e)
         {
@@ -23,7 +25,6 @@ namespace Video_libarary
             if (name_of != "Пошук в програмі...")
             {
                 MessageBox.Show($"You write: {name_of}");
-                Console.WriteLine($"You write: {name_of}");
             }
         }
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace Video_libarary
 
         private void Search_box_TextChanged(object sender, EventArgs e)
         {
-
+            Video alias = new Video();
         }
 
         private void Advenced_search_CheckedChanged(object sender, EventArgs e)
@@ -93,6 +94,10 @@ namespace Video_libarary
 
         private void Clear_Click(object sender, EventArgs e)
         {
+            search_box.Text = null;
+            movie_combo_box.SelectedIndex = -1;
+            serial_combo_box.SelectedIndex = -1;
+            cartoons_combo_box.SelectedIndex = -1;
 
         }
 
