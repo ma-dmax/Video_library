@@ -18,18 +18,29 @@ namespace Video_libarary
         public Main_Window()
         {
             InitializeComponent();
+            GET_Video();
+        }
+        private void GET_Video()
+        {
+            Video_Panel.Controls.Clear();
+            
+
             Videos videos = new Videos();
             Video[] videoArray = videos.GetVideos();
 
-            int element_count = videoArray.Length; 
-            int columns = 3; 
-            int rows = (int)Math.Ceiling((double)element_count / columns); 
+            int element_count = videoArray.Length;
+            int columns = (int)Math.Floor((double)Video_Panel.Width / 205);
+            int rows = (int)Math.Ceiling((double)element_count / columns);
+
 
             TableLayoutPanel tableLayout = new TableLayoutPanel();
 
             tableLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayout.Width = 500;
-            tableLayout.Height = 10000000;
+            tableLayout.Width = Video_Panel.Width;
+            tableLayout.Height = 150*rows;
+            ScrollBarr.Value = 0;
+            ScrollBarr.Maximum = 105 * rows;
+
 
             tableLayout.RowCount = rows;
             tableLayout.ColumnCount = columns;
@@ -39,13 +50,14 @@ namespace Video_libarary
             for (int i = 0; i <= element_count; i++)
             {
                 System.Windows.Forms.Panel panel = new System.Windows.Forms.Panel();
-                if (i%5 != 0) 
+                if (i % 5 != 0)
                 {
                     int row = added_count / columns;
                     int column = added_count % columns;
                     panel.Text = i.ToString();
                     panel.BackColor = Color.White;
                     added_count++;
+
 
                     if (tableLayout.RowStyles.Count <= row)
                     {
@@ -58,11 +70,10 @@ namespace Video_libarary
 
                     tableLayout.Controls.Add(panel, column, row);
                 }
-          
+
 
             }
             Video_Panel.Controls.Add(tableLayout);
-
 
         }
         private void Search_btn_Click(object sender, EventArgs e)
@@ -105,19 +116,19 @@ namespace Video_libarary
             if (cartoons_combo_box.Visible == false)
             {
                 horizon_border.Location = new System.Drawing.Point(-26, 50);
-                ScrollBarr.Location = new System.Drawing.Point(425, 52);
-                ScrollBarr.Size = new System.Drawing.Size(15, 380);
+                ScrollBarr.Location = new System.Drawing.Point(main_bg.Width - 15, 52);
+                ScrollBarr.Size = new System.Drawing.Size(15, main_bg.Height - 100);
                 Video_Panel.Location = new System.Drawing.Point(0, 52);
-                Video_Panel.Size = new System.Drawing.Size(425, 380);
+                Video_Panel.Size = new System.Drawing.Size(main_bg.Width - 15, main_bg.Height - 100);
 
             }
             else
             {
                 horizon_border.Location = new System.Drawing.Point(-26, 100);
-                ScrollBarr.Location = new System.Drawing.Point(425, 102);
-                ScrollBarr.Size = new System.Drawing.Size(15, 330);
+                ScrollBarr.Location = new System.Drawing.Point(main_bg.Width - 15, 102);
+                ScrollBarr.Size = new System.Drawing.Size(15, main_bg.Height - 150);
                 Video_Panel.Location = new System.Drawing.Point(0, 102);
-                Video_Panel.Size = new System.Drawing.Size(425, 330);
+                Video_Panel.Size = new System.Drawing.Size(main_bg.Width - 15, main_bg.Height - 50);
             }
 
         }
@@ -163,6 +174,12 @@ namespace Video_libarary
                 control.Top = control.Top + e.OldValue - e.NewValue;
             }
             Video_Panel.PerformLayout();
+        }
+
+        private void Main_Window_SizeChanged(object sender, EventArgs e)
+        {
+            GET_Video();
+
         }
     }
 }

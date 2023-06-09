@@ -231,6 +231,7 @@
             MinimumSize = new Size(600, 0);
             Name = "Main_Window";
             Text = "Main_Window";
+            SizeChanged += Main_Window_SizeChanged;
             Click += Disfocus;
             right_bg.ResumeLayout(false);
             right_bg.PerformLayout();
