@@ -50,6 +50,7 @@
             movie_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             movie_combo_box.CausesValidation = false;
             movie_combo_box.FormattingEnabled = true;
+            movie_combo_box.Items.AddRange(new object[] { "Фільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
             movie_combo_box.Location = new Point(50, 45);
             movie_combo_box.Name = "movie_combo_box";
             movie_combo_box.Size = new Size(120, 23);
@@ -65,7 +66,7 @@
             serial_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             serial_combo_box.FlatStyle = FlatStyle.Popup;
             serial_combo_box.FormattingEnabled = true;
-            serial_combo_box.Items.AddRange(new object[] { "Мульфільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
+            serial_combo_box.Items.AddRange(new object[] { "Серіали", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
             serial_combo_box.Location = new Point(175, 45);
             serial_combo_box.Name = "serial_combo_box";
             serial_combo_box.RightToLeft = RightToLeft.No;
@@ -191,7 +192,6 @@
             // 
             ScrollBarr.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             ScrollBarr.Location = new Point(425, 51);
-            ScrollBarr.Maximum = 50000;
             ScrollBarr.Name = "ScrollBarr";
             ScrollBarr.Size = new Size(15, 380);
             ScrollBarr.TabIndex = 8;

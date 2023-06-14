@@ -23,7 +23,7 @@ namespace Video_libarary
         private void GET_Video()
         {
             Video_Panel.Controls.Clear();
-            
+
 
             Videos videos = new Videos();
             Video[] videoArray = videos.GetVideos();
@@ -31,30 +31,71 @@ namespace Video_libarary
             int element_count = videoArray.Length;
             int columns = (int)Math.Floor((double)Video_Panel.Width / 205);
             int rows = (int)Math.Ceiling((double)element_count / columns);
+            if (rows > 0)
+            {
 
-
-            TableLayoutPanel tableLayout = new TableLayoutPanel();
+                TableLayoutPanel tableLayout = new TableLayoutPanel();
 
             tableLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayout.Width = Video_Panel.Width;
-            tableLayout.Height = 150*rows;
+            tableLayout.Height = 260 * rows;
             ScrollBarr.Value = 0;
-            ScrollBarr.Maximum = 105 * rows;
+            ScrollBarr.Maximum = 255 * rows;
 
-
-            tableLayout.RowCount = rows;
-            tableLayout.ColumnCount = columns;
+            
+                tableLayout.RowCount = rows;
+                tableLayout.ColumnCount = columns;
+           
+            
 
             int added_count = 0;
 
-            for (int i = 0; i <= element_count; i++)
+            for (int i = 0; i < element_count; i++)             
             {
                 System.Windows.Forms.Panel panel = new System.Windows.Forms.Panel();
-                if (i % 5 != 0)
-                {
+                if (true) { 
                     int row = added_count / columns;
                     int column = added_count % columns;
-                    panel.Text = i.ToString();
+                    panel.Name = i.ToString();
+                    panel.Size = new Size(200, 250);
+
+                    System.Windows.Forms.Label textLabel = new System.Windows.Forms.Label();
+                    textLabel.Text = videoArray[i].Name.ToString();
+                    textLabel.TextAlign = ContentAlignment.MiddleCenter;
+                    textLabel.Location = new System.Drawing.Point(55, 5);
+                    panel.Controls.Add(textLabel);
+
+
+                    System.Windows.Forms.Label textLabel2 = new System.Windows.Forms.Label();
+                    textLabel2.Text = $"Опис: {videoArray[i].Description.ToString()}";
+                        textLabel2.TextAlign = ContentAlignment.TopLeft;
+                    textLabel2.Location = new System.Drawing.Point(15, 25);
+                    textLabel2.Size = new Size(170, 110);
+                    panel.Controls.Add(textLabel2);
+
+                    System.Windows.Forms.Label textLabel3 = new System.Windows.Forms.Label();
+                    textLabel3.Text = $"Оцінка: { videoArray[i].Rating.ToString() }/100";
+                    textLabel3.TextAlign = ContentAlignment.TopLeft;
+                    textLabel3.Location = new System.Drawing.Point(15, 135);
+                    textLabel3.Size = new Size(170, 20);
+                    panel.Controls.Add(textLabel3);
+
+                    System.Windows.Forms.Label textLabel4 = new System.Windows.Forms.Label();
+                    textLabel4.Text = $"Рік виходу: {videoArray[i].Year.ToString()}";
+                    textLabel4.TextAlign = ContentAlignment.TopLeft;
+                    textLabel4.Location = new System.Drawing.Point(15, 155);
+                    textLabel4.Size = new Size(170, 20);
+                    panel.Controls.Add(textLabel4);
+
+                    System.Windows.Forms.Button Button = new System.Windows.Forms.Button();
+                    Button.Text = $"Взяти фільми в оренду";
+                    Button.TextAlign = ContentAlignment.TopLeft;
+                    Button.Location = new System.Drawing.Point(50, 185);
+                    Button.Size = new Size(140, 25);
+                    Button.Name = i.ToString();
+                    Button.Click += Add_Movie;
+                    panel.Controls.Add(Button);
+
                     panel.BackColor = Color.White;
                     added_count++;
 
@@ -69,12 +110,11 @@ namespace Video_libarary
                     }
 
                     tableLayout.Controls.Add(panel, column, row);
+
                 }
-
-
             }
             Video_Panel.Controls.Add(tableLayout);
-
+            }
         }
         private void Search_btn_Click(object sender, EventArgs e)
         {
@@ -84,11 +124,19 @@ namespace Video_libarary
                 MessageBox.Show($"You write: {name_of}");
             }
         }
+        private void Add_Movie(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button clickedButton = sender as System.Windows.Forms.Button;
+            string buttonName = clickedButton.Name;
+                
+            MessageBox.Show($"You wanna to add movie by ID :{buttonName}");
+                
+        }
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            System.Windows.Forms.ComboBox type_video = (System.Windows.Forms.ComboBox)sender;
+            /*System.Windows.Forms.ComboBox type_video = (System.Windows.Forms.ComboBox)sender;
             search_box.Text = type_video.Text;
-            Search_btn_Click(this, e);
+            Search_btn_Click(this, e);*/
         }
 
         private void ComboBox_MouseHover(object sender, EventArgs e)
@@ -113,6 +161,7 @@ namespace Video_libarary
             movie_combo_box.Visible = !movie_combo_box.Visible;
             serial_combo_box.Visible = !serial_combo_box.Visible;
             cartoons_combo_box.Visible = !cartoons_combo_box.Visible;
+
             if (cartoons_combo_box.Visible == false)
             {
                 horizon_border.Location = new System.Drawing.Point(-26, 50);
@@ -130,6 +179,9 @@ namespace Video_libarary
                 Video_Panel.Location = new System.Drawing.Point(0, 102);
                 Video_Panel.Size = new System.Drawing.Size(main_bg.Width - 15, main_bg.Height - 50);
             }
+            movie_combo_box.SelectedIndex = 0;
+            serial_combo_box.SelectedIndex = 0;
+            cartoons_combo_box.SelectedIndex = 0;
 
         }
 
@@ -155,16 +207,15 @@ namespace Video_libarary
 
         private void Disfocus(object sender, EventArgs e)
         {
-            main_bg.Focus();
+            ScrollBarr.Focus();
         }
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            search_box.Text = null;
-            movie_combo_box.SelectedIndex = -1;
-            serial_combo_box.SelectedIndex = -1;
-            cartoons_combo_box.SelectedIndex = -1;
-
+            movie_combo_box.SelectedIndex = 0;
+            serial_combo_box.SelectedIndex = 0;
+            cartoons_combo_box.SelectedIndex = 0;
+            search_box.Text = "Пошук в програмі...";
         }
         private void VScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
