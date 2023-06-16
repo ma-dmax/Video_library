@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Video_libarary
+namespace Video_libarary.Models
 {
     internal class Video
     {
@@ -23,7 +23,7 @@ namespace Video_libarary
     {
         public Video[] GetVideos()
         {
-            string[,] arr = Init();
+            string[,] arr = My_Init();
 
             Video[] videos = new Video[arr.GetLength(0)];
 
@@ -54,7 +54,7 @@ namespace Video_libarary
             return videos;
         }
 
-        private string[,] Init()
+        public string[,] My_Init()
         {
             string filePath = "A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\movies.txt";
 

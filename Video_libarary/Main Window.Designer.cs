@@ -2,15 +2,7 @@
 {
     partial class Main_Window
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,17 +13,14 @@
         }
 
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             movie_combo_box = new ComboBox();
             serial_combo_box = new ComboBox();
             cartoons_combo_box = new ComboBox();
             right_bg = new Panel();
+            rented_video = new Label();
+            button1 = new Button();
             advenced_search = new CheckBox();
             clear_btn = new Button();
             search_btn = new Button();
@@ -50,7 +39,7 @@
             movie_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             movie_combo_box.CausesValidation = false;
             movie_combo_box.FormattingEnabled = true;
-            movie_combo_box.Items.AddRange(new object[] { "Фільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
+            movie_combo_box.Items.AddRange(new object[] { "Фільми", "Фільм", "Фантастика", "Боєвик", "Сімейний", "Пригодницький", "Дитячий", "Короткометражний", "Полнометражний" });
             movie_combo_box.Location = new Point(50, 45);
             movie_combo_box.Name = "movie_combo_box";
             movie_combo_box.Size = new Size(120, 23);
@@ -66,7 +55,7 @@
             serial_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             serial_combo_box.FlatStyle = FlatStyle.Popup;
             serial_combo_box.FormattingEnabled = true;
-            serial_combo_box.Items.AddRange(new object[] { "Серіали", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
+            serial_combo_box.Items.AddRange(new object[] { "Серіали", "Фільм", "Фантастика", "Боєвик", "Сімейний", "Пригодницький", "Дитячий", "Короткометражний", "Полнометражний" });
             serial_combo_box.Location = new Point(175, 45);
             serial_combo_box.Name = "serial_combo_box";
             serial_combo_box.RightToLeft = RightToLeft.No;
@@ -83,7 +72,7 @@
             cartoons_combo_box.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cartoons_combo_box.FlatStyle = FlatStyle.Popup;
             cartoons_combo_box.FormattingEnabled = true;
-            cartoons_combo_box.Items.AddRange(new object[] { "Мульфільми", "Фантастика", "Боєвики", "Казки", "Сімейні", "Пригодницькі", "Дитячі", "Мультсеріали", "Короткометражні", "Полнометражні" });
+            cartoons_combo_box.Items.AddRange(new object[] { "Мультфільми", "Мультфільм", "Фантастика", "Боєвик", "Сімейний", "Пригодницький", "Дитячий", "Короткометражний", "Полнометражний" });
             cartoons_combo_box.Location = new Point(300, 45);
             cartoons_combo_box.Name = "cartoons_combo_box";
             cartoons_combo_box.Size = new Size(120, 23);
@@ -97,6 +86,8 @@
             // right_bg
             // 
             right_bg.BackColor = Color.FromArgb(49, 106, 247);
+            right_bg.Controls.Add(rented_video);
+            right_bg.Controls.Add(button1);
             right_bg.Controls.Add(advenced_search);
             right_bg.Controls.Add(clear_btn);
             right_bg.Controls.Add(search_btn);
@@ -107,6 +98,28 @@
             right_bg.Size = new Size(144, 431);
             right_bg.TabIndex = 3;
             right_bg.Click += Disfocus;
+            // 
+            // rented_video
+            // 
+            rented_video.AutoSize = true;
+            rented_video.Location = new Point(22, 292);
+            rented_video.Name = "rented_video";
+            rented_video.Size = new Size(13, 15);
+            rented_video.TabIndex = 8;
+            rented_video.Text = "1";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(247, 190, 49);
+            button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Location = new Point(22, 253);
+            button1.Name = "button1";
+            button1.Size = new Size(110, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Здати аренду";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += Submit_arend;
             // 
             // advenced_search
             // 
@@ -216,7 +229,6 @@
             search_box.Size = new Size(181, 23);
             search_box.TabIndex = 3;
             search_box.Text = "Пошук в програмі...";
-            search_box.TextChanged += Search_box_TextChanged;
             search_box.Enter += Search_box_Enter;
             search_box.Leave += Search_box_Leave;
             // 
@@ -255,5 +267,7 @@
         private CheckBox advenced_search;
         private VScrollBar ScrollBarr;
         private Panel Video_Panel;
+        private Button button1;
+        private Label rented_video;
     }
 }
