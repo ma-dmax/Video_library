@@ -56,7 +56,7 @@ namespace Video_libarary.Models
 
         public string[,] My_Init()
         {
-            string filePath = "A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\movies.txt";
+            string filePath = "movies.txt"; //A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\
 
             string text = File.ReadAllText(filePath);
 

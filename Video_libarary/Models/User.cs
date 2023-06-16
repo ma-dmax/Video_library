@@ -17,7 +17,7 @@ namespace Video_libarary.Models
 
         public User()
         {
-            string filePath = "A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\User.txt";
+            string filePath = "User.txt";//A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\
 
             string text = File.ReadAllText(filePath);
 
@@ -96,14 +96,14 @@ namespace Video_libarary.Models
         }
         public void Add_Video(int video_id, string Text)
         {
-            string filePath = "A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\User.txt";
+            string filePath = "User.txt";
             User_video = video_id;
             Videos_enabel = false;
             File.WriteAllText(filePath, $"{Id};{Addres};{User_video}");
         }
         public void Suvmit_Video()
         {
-            string filePath = "A:\\Проєкти С#\\Cursova\\Video_libarary\\Video_libarary\\User.txt";
+            string filePath = "User.txt";
             User_video = -1;
             File.WriteAllText(filePath, $"{Id};{Addres};{User_video}");
         }
